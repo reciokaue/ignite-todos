@@ -14,16 +14,16 @@ export function Home() {
         return true
       }else false
     })
-    if(alreadyTitle){
-      Alert.alert('Task já cadastrada', 'Você não pode cadastrar uma task com o mesmo nome')
-    }else{
+    // if(alreadyTitle){
+    //   Alert.alert('Task já cadastrada', 'Você não pode cadastrar uma task com o mesmo nome')
+    // }else{
       const newTask:Task = {
         id: new Date().getTime(),
         title: newTaskTitle,
         done:  false,
       }
       setTasks([...tasks, newTask])
-    }
+    // }
   }
 
   function handleToggleTaskDone(id: number) {
@@ -43,19 +43,19 @@ export function Home() {
   }
   
   function handleRemoveTask(id: number) {
-    Alert.alert(
-      'Remover item',
-      'Tem certeza que você deseja remover esse item?',
-      [ 
-        {text: 'Não'},
-        {text: 'Sim', onPress: () => {
+    // Alert.alert(
+    //   'Remover item',
+    //   'Tem certeza que você deseja remover esse item?',
+    //   [ 
+    //     {text: 'Não'},
+    //     {text: 'Sim', onPress: () => {
           const filtered = tasks.filter((item) =>  {
             return item.id != id
           })
           setTasks(filtered)
-        }}
-      ]
-    )
+    //     }}
+    //   ]
+    // )
   }
 
   function handleEditTask(id: number, title: string){
